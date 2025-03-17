@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <!-- Brand Logo -->
+    <a class="navbar-brand fw-bold text-primary" routerLink="/">
+      <img src="assets/images/logonew.png" alt="Logo" height="40" class="me-2"> My Angular App
+    </a>
+
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Debugging: Display isLoggedIn status -->
+    <p>{{ isLoggedIn }}</p>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+
+        <!-- Show "Courses" link only if the user is logged in -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/courses">Courses</a>
+        </li>
+
+        <!-- Show "Login" and "Sign Up" links only if the user is NOT logged in -->
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/signup">Sign Up</a>
+        </li>
+
+        <!-- Show "Dashboard" link only if the user is logged in -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </li>
+
+        <!-- Show "Logout" button only if the user is logged in -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <button class="nav-link btn btn-link" (click)="logout()">Logout</button>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary text-white px-3 ms-3" routerLink="/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

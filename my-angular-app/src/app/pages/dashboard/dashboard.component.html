@@ -1,0 +1,52 @@
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="Logo" />
+        <h2>My Dashboard</h2>
+      </div>
+      <ul class="menu">
+        <li>
+            <a routerLink="/dashboard" routerLinkActive="active">
+              <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+          </li>
+          <li>
+            <a routerLink="/dashboard/posts" routerLinkActive="active">
+              <i class="fas fa-file-alt"></i> Posts
+            </a>
+          </li>
+          <li>
+            <a routerLink="/dashboard/media" routerLinkActive="active">
+              <i class="fas fa-image"></i> Add Posts
+            </a>
+          </li>
+          <li>
+            <a routerLink="/dashboard/settings" routerLinkActive="active">
+              <i class="fas fa-cog"></i> Settings
+            </a>
+          </li>
+          <li>
+            <a routerLink="/dashboard/analytics" routerLinkActive="active">
+              <i class="fas fa-cog"></i> Analytics
+            </a>
+          </li>
+      </ul>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Navigation Bar -->
+      <div class="top-nav">
+        <div class="user-info">
+          <span>Welcome, User!</span>
+          <button (click)="logout()">Logout</button>
+        </div>
+      </div>
+  
+      <!-- Dashboard Content -->
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

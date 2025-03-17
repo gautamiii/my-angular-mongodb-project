@@ -1,0 +1,83 @@
+<div class="container">
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Search Posts"
+      class="search-input"
+    />
+    <button class="btn add-post-btn" (click)="navigateToMedia()">Add Posts</button>
+  </div>
+
+  <!-- Entries Per Page Dropdown -->
+  <div class="entries-container">
+    <label for="entries">Show Entries:</label>
+    <select id="entries" [(ngModel)]="itemsPerPage" (change)="loadData(1)" class="entries-dropdown">
+      <option *ngFor="let size of [10, 25, 50, 100]" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+
+  <!-- No Data Message -->
+  <div *ngIf="filteredPosts.length === 0" class="no-data">No data available.</div>
+
+  <!-- Data Table -->
+  <table *ngIf="filteredPosts.length > 0" class="styled-table">
+    <thead>
+      <tr>
+        <th>Sr No</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Image</th>
+        <th>Created On</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of filteredPosts; let i = index">
+        <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+
+        <!-- Email Field -->
+        <td *ngIf="editingPost?._id !== post._id">{{ post.email }}</td>
+        <td *ngIf="editingPost?._id === post._id">
+          <input type="text" [(ngModel)]="editingPost.email" />
+        </td>
+
+        <!-- Address Field -->
+        <td *ngIf="editingPost?._id !== post._id">{{ post.address }}</td>
+        <td *ngIf="editingPost?._id === post._id">
+          <input type="text" [(ngModel)]="editingPost.address" />
+        </td>
+
+        <!-- Image Field -->
+        <td>
+          <img *ngIf="editingPost?._id !== post._id" [src]="post.imageUrl" class="post-image" />
+          <div *ngIf="editingPost?._id === post._id">
+            <input type="file" (change)="onFileSelected($event)" />
+            <img *ngIf="previewImageUrl" [src]="previewImageUrl" class="post-image-preview" />
+          </div>
+        </td>
+        <td></td>
+        <!-- Manage Buttons -->
+        <td>
+          <button class="btn edit-btn" (click)="toggleEdit(post)">
+            {{ editingPost?._id === post._id ? 'Save' : 'Edit' }}
+          </button>
+          <button *ngIf="editingPost?._id === post._id" class="btn cancel-btn" (click)="cancelEdit()">Cancel</button>
+          <button class="btn delete-btn" (click)="deletePost(post._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination Controls -->
+  <div *ngIf="totalPages > 1" class="pagination-container">
+    <button (click)="loadData(currentPage - 1)" [disabled]="currentPage === 1" class="pagination-btn">
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="loadData(currentPage + 1)" [disabled]="currentPage === totalPages" class="pagination-btn">
+      Next
+    </button>
+  </div>
+</div>

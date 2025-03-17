@@ -1,0 +1,17 @@
+<h2>Home Component</h2>
+<h2>Submitted Data</h2>
+<div class="grid">
+  <div *ngFor="let data of submittedData; let i = index" class="card">
+    <p><strong>Email:</strong> {{ data.email }}</p>
+    <p><strong>Address:</strong> {{ data.address }}</p>
+    <img [src]="data.imageUrl" alt="Uploaded Image" width="100" />
+    <button (click)="onDelete(data._id, i)">❌ Delete</button>
+  </div>
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination">
+  <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>
