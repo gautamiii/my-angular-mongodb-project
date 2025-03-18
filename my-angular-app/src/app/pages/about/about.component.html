@@ -1,17 +1,104 @@
-<h2>About Component</h2>
-<h2>Submitted Data</h2>
+<div class="about-page">
 
-<div class="grid">
+  <!-- Hero Section -->
+  <section class="about-hero text-center d-flex align-items-center justify-content-center">
+    <div class="container">
+      <h1 class="text-white display-4">About Us</h1>
+      <p class="text-white lead">Who we are and what we do.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-content py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="https://source.unsplash.com/600x400/?team,office" class="img-fluid rounded" alt="Our Team">
+        </div>
+        <div class="col-md-6">
+          <h2>Our Story</h2>
+          <p>We are a team of professionals dedicated to providing top-quality services in web development, mobile apps, and custom solutions.</p>
+          <p>With years of experience, we aim to deliver cutting-edge technology and exceptional customer service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="mission-vision text-center py-5 bg-light">
+    <div class="container">
+      <h2>Our Mission & Vision</h2>
+      <p class="lead">We strive to innovate and provide the best solutions for our clients.</p>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card p-4 shadow-sm">
+            <h5>Our Mission</h5>
+            <p>To create high-quality, efficient, and scalable digital solutions that empower businesses worldwide.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-4 shadow-sm">
+            <h5>Our Vision</h5>
+            <p>To be a global leader in technology innovation, setting new standards in the digital industry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team py-5">
+    <div class="container text-center">
+      <h2 class="mb-4">Meet Our Team</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="team-member p-4 shadow-sm">
+            <img src="https://source.unsplash.com/150x150/?person" class="rounded-circle" alt="Team Member">
+            <h5 class="mt-3">John Doe</h5>
+            <p>CEO & Founder</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="team-member p-4 shadow-sm">
+            <img src="https://source.unsplash.com/150x150/?woman,developer" class="rounded-circle" alt="Team Member">
+            <h5 class="mt-3">Jane Smith</h5>
+            <p>Lead Developer</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="team-member p-4 shadow-sm">
+            <img src="https://source.unsplash.com/150x150/?business" class="rounded-circle" alt="Team Member">
+            <h5 class="mt-3">Mark Wilson</h5>
+            <p>Project Manager</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta text-center py-5">
+    <div class="container">
+      <h2 class="text-white">Want to Work with Us?</h2>
+      <p class="text-white">Join us on our journey to excellence.</p>
+      <a href="#" class="btn btn-light btn-lg mt-3">Contact Us</a>
+    </div>
+  </section>
+
+</div>
+
+
+<!--div class="grid">
   <div *ngFor="let data of submittedData; let i = index" class="card">
     <p><strong>Email:</strong> {{ data.email }}</p>
     <p><strong>Address:</strong> {{ data.address }}</p>
     <img [src]="data.imageUrl" alt="Uploaded Image" width="100" />
     <button (click)="onDelete(data._id, i)">❌ Delete</button>
   </div>
-</div>
+</div-->
 <!-- Pagination Controls -->
-<div class="pagination">
+<!--div class="pagination">
   <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
   <span>Page {{ currentPage }} of {{ totalPages }}</span>
   <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-</div>
+</div-->

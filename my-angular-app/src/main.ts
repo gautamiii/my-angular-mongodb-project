@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent, canActivate: [authGuard] },  // 🔒 Protected route
+  { path: 'about', component: AboutComponent},  // 🔒 Protected route
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'courses', component: CoursesComponent, canActivate: [authGuard] },  // 🔒 Protected route
